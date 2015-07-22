@@ -1,6 +1,7 @@
 package com.example.mj.attendance;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,8 +17,9 @@ import android.widget.TextView;
 public class SelectSectionRV extends Activity {
 
     int[] icons = {R.drawable.circle, R.drawable.circle, R.drawable.circle, R.drawable.circle, R.drawable.circle};
-    String[] titles = {"  Section 1", "  Section 2", "  Section 3", "  Section 4","  Section 5"};
+    String[] titles = {"  Section 1", "  Section 2", "  Section 3", "  Section 4", "  Section 5"};
     RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,21 +33,33 @@ public class SelectSectionRV extends Activity {
 
     }
 
-    public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder>{
+    public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> implements View.OnClickListener {
 
-        class MyHolder extends RecyclerView.ViewHolder{
+        @Override
+        public void onClick(View view) {
+            int pos =
+                    recyclerView.getChildPosition(view);
+            Intent intent = new Intent(getApplicationContext(),SecondPage.class);
+            startActivity(intent);
+
+        }
+
+        class MyHolder extends RecyclerView.ViewHolder {
 
             ImageView imageView;
             TextView textView;
+
             public MyHolder(View itemView) {
                 super(itemView);
-                textView= (TextView) itemView.findViewById(R.id.listText);
+                textView = (TextView) itemView.findViewById(R.id.listText);
                 imageView = (ImageView) itemView.findViewById(R.id.listIcon);
             }
         }
+
         @Override
-           public MyAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.selectsectionrow,parent,false);
+        public MyAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.selectsectionrow, parent, false);
+            view.setOnClickListener(this);
             return new MyHolder(view);
         }
 
