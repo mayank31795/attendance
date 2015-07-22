@@ -36,7 +36,7 @@ public class SelectSection extends Activity  {
 
     public void next(View view)
     {
-        Intent intent= new Intent(this,SecondPage.class);
+        Intent intent= new Intent(this,SecondPage2.class);
         startActivity(intent);
     }
 

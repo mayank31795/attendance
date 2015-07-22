@@ -27,6 +27,11 @@
             android:name=".SecondPage"
             android:label="@string/title_activity_second_page" >
         </activity>
+
+        <activity
+            android:name=".SecondPage2"
+            android:label="@string/title_activity_second_page" >
+        </activity>
         <activity
             android:name=".OverallAttendance"
             android:label="@string/title_activity_overall_attendance" >

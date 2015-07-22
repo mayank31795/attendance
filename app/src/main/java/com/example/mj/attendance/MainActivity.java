@@ -52,12 +52,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        String na=login.getText().toString();
+       // String na=login.getText().toString();
 
         switch (v.getId()) {
             case R.id.button:
+                Intent i=new Intent(getApplicationContext(),SelectSectionRV.class);
+                startActivity(i);
+                finish();
 
-                if (na.equals("123")) {
+              /*  if (na.equals("123")) {
                     Intent i=new Intent(getApplicationContext(),SelectSectionRV.class);
                     startActivity(i);
                     finish();
@@ -74,7 +77,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                       Toast  t = Toast.makeText(this,"Wrong ID",Toast.LENGTH_LONG);
                         t.show();
 
-                }
+                }*/
 
                 break;
             default:

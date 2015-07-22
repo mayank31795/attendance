@@ -37,9 +37,8 @@ public class SelectSectionRV extends Activity {
 
         @Override
         public void onClick(View view) {
-            int pos =
-                    recyclerView.getChildPosition(view);
-            Intent intent = new Intent(getApplicationContext(),SecondPage.class);
+            int pos = recyclerView.getChildPosition(view);
+            Intent intent = new Intent(getApplicationContext(),SecondPage2.class);
             startActivity(intent);
 
         }
