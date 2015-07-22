@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class SelectSectionRV extends Activity {
 
-    int[] icons = {R.drawable.arrow, R.drawable.arrow, R.drawable.arrow, R.drawable.arrow, R.drawable.arrow};
+    int[] icons = {R.drawable.circle, R.drawable.circle, R.drawable.circle, R.drawable.circle, R.drawable.circle};
     String[] titles = {"  Section 1", "  Section 2", "  Section 3", "  Section 4","  Section 5"};
     RecyclerView recyclerView;
     @Override
