@@ -1,0 +1,779 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.mj.attendance.OverallAttendance">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:fillViewport="false"
+        android:layout_marginTop="30dp">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/resultgrid"
+            android:useDefaultMargins="true"
+            android:layout_alignTop="@+id/scrollView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Student Name"
+                android:textColor="#FF5C33"
+                android:id="@+id/textView"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:textSize="15dp"
+                android:layout_rowSpan="2"
+                android:textStyle="bold"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attendance"
+                android:textColor="#FF5C33"
+                android:id="@+id/textView2"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:textSize="15dp"
+                android:layout_rowSpan="2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attendance %"
+                android:textColor="#FF5C33"
+                android:id="@+id/textView3"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:textSize="15dp"
+                android:layout_rowSpan="2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name1"
+                android:id="@+id/textView4"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name2"
+                android:id="@+id/textView5"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name3"
+                android:id="@+id/textView6"
+                android:layout_row="4"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name4"
+                android:id="@+id/textView7"
+                android:layout_row="5"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name5"
+                android:id="@+id/textView8"
+                android:layout_row="6"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name6"
+                android:id="@+id/textView9"
+                android:layout_row="7"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name7"
+                android:id="@+id/textView10"
+                android:layout_row="8"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name8"
+                android:id="@+id/textView11"
+                android:layout_row="9"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name9"
+                android:id="@+id/textView12"
+                android:layout_row="10"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name10"
+                android:id="@+id/textView13"
+                android:layout_row="11"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name11"
+                android:id="@+id/textView14"
+                android:layout_row="12"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name12"
+                android:id="@+id/textView15"
+                android:layout_row="13"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name13"
+                android:id="@+id/textView16"
+                android:layout_row="14"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name14"
+                android:id="@+id/textView17"
+                android:layout_row="15"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name15"
+                android:id="@+id/textView18"
+                android:layout_row="16"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name16"
+                android:id="@+id/textView19"
+                android:layout_row="17"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name17"
+                android:id="@+id/textView20"
+                android:layout_row="18"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name18"
+                android:id="@+id/textView21"
+                android:layout_row="19"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name19"
+                android:id="@+id/textView22"
+                android:layout_row="20"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name20"
+                android:id="@+id/textView23"
+                android:layout_row="21"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name21"
+                android:id="@+id/textView24"
+                android:layout_row="22"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name22"
+                android:id="@+id/textView25"
+                android:layout_row="23"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name23"
+                android:id="@+id/textView26"
+                android:layout_row="24"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name24"
+                android:id="@+id/textView27"
+                android:layout_row="25"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name25"
+                android:id="@+id/textView28"
+                android:layout_row="26"
+                android:layout_column="0"
+                android:textSize="13dp"
+                android:layout_gravity="fill_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att1"
+                android:id="@+id/textView101"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att2"
+                android:id="@+id/textView102"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att3"
+                android:id="@+id/textView103"
+                android:layout_row="4"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att4"
+                android:id="@+id/textView104"
+                android:layout_row="5"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att5"
+                android:id="@+id/textView105"
+                android:layout_row="6"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att6"
+                android:id="@+id/textView106"
+                android:layout_row="7"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att7"
+                android:id="@+id/textView107"
+                android:layout_row="8"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att8"
+                android:id="@+id/textView108"
+                android:layout_row="9"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att9"
+                android:id="@+id/textView109"
+                android:layout_row="10"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att10"
+                android:id="@+id/textView110"
+                android:layout_row="11"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att11"
+                android:id="@+id/textView111"
+                android:layout_row="12"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att12"
+                android:id="@+id/textView112"
+                android:layout_row="13"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att13"
+                android:id="@+id/textView113"
+                android:layout_row="14"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att14"
+                android:id="@+id/textView114"
+                android:layout_row="15"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att15"
+                android:id="@+id/textView115"
+                android:layout_row="16"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att16"
+                android:id="@+id/textView116"
+                android:layout_row="17"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att17"
+                android:id="@+id/textView117"
+                android:layout_row="18"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att18"
+                android:id="@+id/textView118"
+                android:layout_row="19"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att19"
+                android:id="@+id/textView119"
+                android:layout_row="20"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att20"
+                android:id="@+id/textView120"
+                android:layout_row="21"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att21"
+                android:id="@+id/textView121"
+                android:layout_row="22"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att22"
+                android:id="@+id/textView122"
+                android:layout_row="23"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att23"
+                android:id="@+id/textView123"
+                android:layout_row="24"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att24"
+                android:id="@+id/textView124"
+                android:layout_row="25"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att25"
+                android:id="@+id/textView125"
+                android:layout_row="26"
+                android:layout_column="1"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView201"
+                android:layout_row="2"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%2"
+                android:id="@+id/textView202"
+                android:layout_row="3"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%3"
+                android:id="@+id/textView203"
+                android:layout_row="4"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%4"
+                android:id="@+id/textView204"
+                android:layout_row="5"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%5"
+                android:id="@+id/textView205"
+                android:layout_row="6"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%6"
+                android:id="@+id/textView206"
+                android:layout_row="7"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%7"
+                android:id="@+id/textView207"
+                android:layout_row="8"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%8"
+                android:id="@+id/textView208"
+                android:layout_row="9"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%9"
+                android:id="@+id/textView209"
+                android:layout_row="10"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%10"
+                android:id="@+id/textView210"
+                android:layout_row="11"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%11"
+                android:id="@+id/textView211"
+                android:layout_row="12"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%12"
+                android:id="@+id/textView212"
+                android:layout_row="13"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%13"
+                android:id="@+id/textView213"
+                android:layout_row="14"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%14"
+                android:id="@+id/textView214"
+                android:layout_row="15"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%15"
+                android:id="@+id/textView215"
+                android:layout_row="16"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%16"
+                android:id="@+id/textView216"
+                android:layout_row="17"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%17"
+                android:id="@+id/textView217"
+                android:layout_row="18"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%18"
+                android:id="@+id/textView218"
+                android:layout_row="19"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%19"
+                android:id="@+id/textView219"
+                android:layout_row="20"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%20"
+                android:id="@+id/textView220"
+                android:layout_row="21"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%21"
+                android:id="@+id/textView221"
+                android:layout_row="22"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%22"
+                android:id="@+id/textView222"
+                android:layout_row="23"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%23"
+                android:id="@+id/textView223"
+                android:layout_row="24"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%24"
+                android:id="@+id/textView224"
+                android:layout_row="25"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="att%25"
+                android:id="@+id/textView225"
+                android:layout_row="26"
+                android:layout_column="2"
+                android:textSize="13dp" />
+
+        </GridLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="#FF5C33"
+        android:textColor="#FFFFFF"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="ATTENDANCE RESULT"
+        android:id="@+id/textView300"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="20dp" />
+
+</RelativeLayout>

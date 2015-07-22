@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.mj.attendance.SecondPage">
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="MARK ATTENDANCE"
+        android:id="@+id/takeAtt"
+        android:background="#FF5C33"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:onClick="buttonOne"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="OVERALL ATTENDANCE RESULT"
+        android:id="@+id/attResult"
+        android:onClick="buttonTwo"
+        android:background="#FF5C33"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="DAY TO DAY ATTENDANCE RESULTS"
+        android:gravity="center"
+        android:onClick="buttonThree"
+        android:textAlignment="center"
+        android:id="@+id/attAccDate"
+        android:background="#FF5C33"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="320dp"/>
+
+</RelativeLayout>
