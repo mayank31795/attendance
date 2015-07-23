@@ -57,7 +57,6 @@ class MyAdapter extends FragmentStatePagerAdapter {
         if(position==0) {
             title="MARK ATTENDANCE";
 
-
         }
         if(position==1) {
             title= "OVERALL ATTENDANCE";
