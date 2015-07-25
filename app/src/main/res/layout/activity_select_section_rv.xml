@@ -11,8 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:id="@+id/li">
-
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:text="SELECT SECTION"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="#FFffff"
+        android:textColor="#ffffff"
         android:textSize="30dp"
         android:layout_alignParentTop="true" />
 

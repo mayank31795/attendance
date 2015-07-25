@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="5dp"
     card_view:cardCornerRadius="10dp"
-    card_view:cardElevation="5dp">
+    card_view:cardElevation="4dp">
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,11 +16,11 @@
 
         <ImageView
             android:id="@+id/listIcon"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/circle" />
+            />
 
         <TextView
             android:id="@+id/listText"
@@ -31,7 +31,7 @@
             android:textSize="20dp"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:text="  Section 1" />
+            />
 
     </LinearLayout>
 </android.support.v7.widget.CardView>

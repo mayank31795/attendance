@@ -2,9 +2,11 @@ package com.example.mj.attendance;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,11 +14,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.HttpContext;
+import org.apache.http.util.EntityUtils;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 
 public class SelectSectionRV extends Activity {
 
-    int[] icons = {R.drawable.circle, R.drawable.circle, R.drawable.circle, R.drawable.circle, R.drawable.circle};
+    int[] icons = {R.drawable.circ, R.drawable.circ, R.drawable.circ, R.drawable.circ, R.drawable.circ};
     String[] titles = {"  Section 1", "  Section 2", "  Section 3", "  Section 4", "  Section 5"};
     RecyclerView recyclerView;
 
@@ -38,7 +57,7 @@ public class SelectSectionRV extends Activity {
         @Override
         public void onClick(View view) {
             int pos = recyclerView.getChildPosition(view);
-            Intent intent = new Intent(getApplicationContext(),SecondPage2.class);
+            Intent intent = new Intent(getApplicationContext(), SecondPage2.class);
             startActivity(intent);
 
         }
@@ -54,6 +73,7 @@ public class SelectSectionRV extends Activity {
                 imageView = (ImageView) itemView.findViewById(R.id.listIcon);
             }
         }
+
 
         @Override
         public MyAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
