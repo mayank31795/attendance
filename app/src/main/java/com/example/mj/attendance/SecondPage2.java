@@ -6,8 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import java.util.List;
-
 /**
  * Created by AK PC on 22-07-2015.
  */
@@ -58,12 +56,14 @@ class MyAdapter extends FragmentStatePagerAdapter {
         String title = new String();
         if(position==0) {
             title="MARK ATTENDANCE";
+
+
         }
         if(position==1) {
             title= "OVERALL ATTENDANCE";
         }
         if(position==2) {
-            title= "DAY WISE ATTENDANCE";
+            title= "EACH DAY ATTENDANCE";
         }
         return title;
         }
