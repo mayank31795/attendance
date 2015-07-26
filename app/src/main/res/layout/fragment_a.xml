@@ -6,10 +6,9 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="0dp"
         tools:context="com.example.mj.attendance.FragmentA"
-        android:background="#ff5c33"
+        android:background="#ff5c33">
 
-        >
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -18,9 +17,7 @@
             >
         </LinearLayout>
 
-
-
-        <android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView
             android:id="@+id/drawerlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,5 +25,28 @@
 
             ></android.support.v7.widget.RecyclerView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/option"
+
+        android:background="@drawable/nobul">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select All"
+            android:id="@+id/select"
+            android:layout_alignParentBottom="true"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            />
+
     </RelativeLayout>
+
+
+</RelativeLayout>
 

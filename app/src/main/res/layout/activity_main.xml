@@ -11,10 +11,11 @@
        android:visibility="invisible"
        >
        <ProgressBar
-           android:layout_width="100dp"
-           android:layout_height="100dp"
+           android:layout_width="80dp"
+           android:layout_height="80dp"
            android:id="@+id/progress"
            android:indeterminate="true"
+           android:background = "@xml/progress"
            android:layout_centerInParent="true"/>
        </RelativeLayout>
     <TextView
@@ -46,7 +47,7 @@
         android:typeface="normal"/>
 
     <EditText
-        android:layout_width="300dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/et"
         android:layout_below="@+id/tv2"
@@ -56,6 +57,7 @@
         android:inputType="number"
         android:maxLines="1"
         android:hint="Enter Login ID"
+        android:textStyle="italic"
        />
 
     <Button

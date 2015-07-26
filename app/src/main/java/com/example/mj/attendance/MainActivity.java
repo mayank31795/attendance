@@ -36,10 +36,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button next;
     String login_id;
     RelativeLayout load;
-    Button button;
+    private boolean backPressedToExitOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         login = (EditText) findViewById(R.id.et);
@@ -47,6 +48,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         next.setOnClickListener(this);
         load= (RelativeLayout) findViewById(R.id.load);
 
+    }
+    @Override
+    public void onBackPressed() {
+        if (backPressedToExitOnce) {
+            super.onBackPressed();
+        } else {
+            this.backPressedToExitOnce = true;
+            Toast.makeText(this, "Press again to Exit", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 
