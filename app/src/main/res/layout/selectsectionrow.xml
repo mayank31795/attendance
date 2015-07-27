@@ -20,17 +20,18 @@
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
+            android:background="@drawable/circ"
             />
 
         <TextView
             android:id="@+id/listText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_gravity="center_vertical"
             android:textColor="#FF5C33"
             android:textSize="20dp"
             android:gravity="center_vertical"
             android:textStyle="bold"
+            android:layout_marginStart="30dp"
             />
 
     </LinearLayout>

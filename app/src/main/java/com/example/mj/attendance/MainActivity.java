@@ -3,6 +3,7 @@ package com.example.mj.attendance;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -43,18 +44,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private boolean backPressedToExitOnce = false;
 
 
-    public boolean isNetworkConnected() {
-        final ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
-        return (activeNetwork != null) && (activeNetwork.getState() == NetworkInfo.State.CONNECTED);
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(!isNetworkConnected()){
-           Toast t = Toast.makeText(this, "Internet Connection Not Available", Toast.LENGTH_LONG);
-           t.show();
-       }
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -62,6 +54,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         next = (Button) findViewById(R.id.button);
         next.setOnClickListener(this);
         load= (RelativeLayout) findViewById(R.id.load);
+
+
+        SharedPreferences sp1=this.getSharedPreferences("data",0);
+        if(sp1.getString("password",null)!=null) {
+            login_id=sp1.getString("password",null);
+            Toast t = Toast.makeText(this, "Good", Toast.LENGTH_SHORT);
+            t.show();
+            new login().execute();
+        }
 
     }
     @Override
@@ -165,11 +166,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
             super.onPostExecute(aBoolean);
             load.setVisibility(View.INVISIBLE);
             if (aBoolean) {
+
+                SharedPreferences sharedPreferences= getSharedPreferences("data", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("password", login.getText().toString());
+                editor.commit();
+
                 Intent i = new Intent(getApplicationContext(), SelectSectionRV.class);
                 i.putExtra(KEY,login_id);
                 startActivity(i);
                 finish();
-               // button.setClickable(false);
             } else {
                 Toast.makeText(getApplicationContext(), "Enter a valid id", Toast.LENGTH_SHORT).show();
             }
