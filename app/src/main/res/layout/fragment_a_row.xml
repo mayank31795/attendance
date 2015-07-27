@@ -11,12 +11,12 @@
         card_view:cardCornerRadius="8dp"
         card_view:cardElevation="2dp"
         >
-
+        <!--  android:button="@drawable/check"  -->
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/listIcon"
-        android:button="@drawable/check"
+
         android:layout_marginRight="5dp"
         android:layout_gravity="end|center"
         />

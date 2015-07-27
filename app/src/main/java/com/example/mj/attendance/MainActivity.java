@@ -1,7 +1,10 @@
 package com.example.mj.attendance;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,8 +42,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
     static String KEY;
     private boolean backPressedToExitOnce = false;
 
+
+    public boolean isNetworkConnected() {
+        final ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
+        return (activeNetwork != null) && (activeNetwork.getState() == NetworkInfo.State.CONNECTED);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(!isNetworkConnected()){
+           Toast t = Toast.makeText(this, "Internet Connection Not Available", Toast.LENGTH_LONG);
+           t.show();
+       }
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
