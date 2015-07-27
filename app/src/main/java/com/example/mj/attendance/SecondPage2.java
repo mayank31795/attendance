@@ -63,7 +63,7 @@ class MyAdapter extends FragmentStatePagerAdapter {
             title= "OVERALL ATTENDANCE";
         }
         if(position==2) {
-            title= "EACH DAY ATTENDANCE";
+            title= "ATTENDANCE RECORD";
         }
         return title;
         }

@@ -36,6 +36,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button next;
     String login_id;
     RelativeLayout load;
+    static String KEY;
     private boolean backPressedToExitOnce = false;
 
     @Override
@@ -142,6 +143,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 e.printStackTrace();
             }
             return null;
+
         }
 
         @Override
@@ -150,6 +152,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             load.setVisibility(View.INVISIBLE);
             if (aBoolean) {
                 Intent i = new Intent(getApplicationContext(), SelectSectionRV.class);
+                i.putExtra(KEY,login_id);
                 startActivity(i);
                 finish();
                // button.setClickable(false);
