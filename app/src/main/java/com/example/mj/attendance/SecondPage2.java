@@ -1,4 +1,5 @@
 package com.example.mj.attendance;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,63 +12,68 @@ import android.support.v4.view.ViewPager;
  */
 public class SecondPage2 extends FragmentActivity {
 
-    ViewPager viewPager=null;
+    String sec;
+    String section;
+    ViewPager viewPager = null;
 
-  @Override
-  protected void onCreate(Bundle saveInstanceState){
-      super.onCreate(saveInstanceState);
-      setContentView(R.layout.activity_second_page2);
-      viewPager = (ViewPager) findViewById(R.id.pager);
-      FragmentManager fragmentManager = getSupportFragmentManager();
-      viewPager.setAdapter(new MyAdapter(fragmentManager));
-  }
+    @Override
+    protected void onCreate(Bundle saveInstanceState) {
+        super.onCreate(saveInstanceState);
+        setContentView(R.layout.activity_second_page2);
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        viewPager.setAdapter(new MyAdapter(fragmentManager));
+    }
+
+
+    class MyAdapter extends FragmentStatePagerAdapter {
+
+        public MyAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int i) {
+            Fragment fragment = null;
+            if (i == 0) {
+                fragment = new FragmentA();
+            }
+            if (i == 1) {
+                fragment = new FragmentB();
+            }
+            if (i == 2) {
+                fragment = new FragmentC();
+            }
+            return fragment;
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            String title = new String();
+            if (position == 0) {
+                title = "MARK ATTENDANCE";
+                Intent in = getIntent();
+                sec = in.getStringExtra(SelectSectionRV.KEY);
+
+                Intent intent = new Intent(getApplicationContext(), MarkAttendance.class);
+                intent.putExtra(section,sec);
+                startActivity(intent);
+            }
+            if (position == 1) {
+                title = "OVERALL ATTENDANCE";
+            }
+            if (position == 2) {
+                title = "ATTENDANCE RECORD";
+            }
+            return title;
+        }
+
+
+    }
+
 }
-
-class MyAdapter extends FragmentStatePagerAdapter {
-
-    public MyAdapter(FragmentManager fm) {
-        super(fm);
-    }
-
-    @Override
-    public Fragment getItem(int i) {
-        Fragment fragment = null;
-        if(i==0)
-        {
-           fragment = new FragmentA();
-        }
-        if(i==1)
-        {
-            fragment = new FragmentB();
-        }if(i==2)
-        {
-            fragment = new FragmentC();
-        }
-        return fragment;
-    }
-
-    @Override
-    public int getCount() {
-        return 3;
-    }
-
-    @Override
-    public CharSequence getPageTitle(int position) {
-        String title = new String();
-        if(position==0) {
-            title="MARK ATTENDANCE";
-
-
-        }
-        if(position==1) {
-            title= "OVERALL ATTENDANCE";
-        }
-        if(position==2) {
-            title= "ATTENDANCE RECORD";
-        }
-        return title;
-        }
-
-
-}
-

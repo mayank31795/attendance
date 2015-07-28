@@ -33,8 +33,9 @@ public class FragmentA_adapter extends RecyclerView.Adapter<FragmentA_adapter.My
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Information current=data.get(position);
-        holder.title.setText(current.title);
+     //   Information current=data.get(position);
+        MarkAttendance markAttendance = new MarkAttendance();
+        holder.title.setText(markAttendance.names.get(position));
        // holder.icon.setImageResource(current.iconId);
 
     }

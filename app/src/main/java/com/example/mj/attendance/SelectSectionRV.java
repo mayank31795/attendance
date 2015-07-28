@@ -36,11 +36,10 @@ import java.util.ArrayList;
 
 public class SelectSectionRV extends Activity {
     RecyclerView section;
-    Integer key;
-    Integer n=0;
-    Integer icons[];
-    String titles[];
-    String number;
+    static String KEY;
+    Integer pos;
+    String sec;
+
     private boolean backPressedToExitOnce = false;
     String message;
     ArrayList<String> subjects = new ArrayList<>();
@@ -62,11 +61,10 @@ public class SelectSectionRV extends Activity {
         recyclerView.setLayoutManager(llm);
         myAdapter = new MyAdapter();
         recyclerView.setAdapter(myAdapter);
-//
+
         new sel_sec().execute();
         Intent in=getIntent();
         message = in.getStringExtra(MainActivity.KEY);
-//        key= Integer.parseInt(message);
     }
 
     @Override
@@ -84,9 +82,8 @@ public class SelectSectionRV extends Activity {
 
         @Override
         public void onClick(View view) {
-            int pos = recyclerView.getChildPosition(view);
-            Intent intent = new Intent(getApplicationContext(), SecondPage2.class);
-            startActivity(intent);
+            pos = recyclerView.getChildPosition(view);
+            sec= subjects.get(pos);
 
         }
 
@@ -101,6 +98,8 @@ public class SelectSectionRV extends Activity {
                 imageView = (ImageView) itemView.findViewById(R.id.listIcon);
             }
         }
+
+
 
 
         @Override
@@ -163,12 +162,6 @@ public class SelectSectionRV extends Activity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-           /* String response1 = response.substring(0,1);
-            number = response1;
-            String response2 = response.substring(3,4);
-            if(number.equals("2")) {
-                String response3 = response.substring(6, 7);
-            }*/
             Log.d("Hardik",response);
             parseJson(response);
 
@@ -179,13 +172,10 @@ public class SelectSectionRV extends Activity {
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
             myAdapter.notifyDataSetChanged();
-            /*n=Integer.parseInt(number);
-            Integer i;
-            for(i=1;i<=n;i++)
-            {
-                icons[i] = R.drawable.circ;
-                titles[i]=;
-            }*/
+
+            Intent intent = new Intent(getApplicationContext(), SecondPage2.class);
+            intent.putExtra(KEY,sec);
+            startActivity(intent);
         }
     }
 
