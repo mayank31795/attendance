@@ -36,7 +36,7 @@ import java.util.ArrayList;
 
 public class SelectSectionRV extends Activity {
     RecyclerView section;
-    static String KEY;
+    String KEY;
     Integer pos;
     String sec;
 
@@ -82,8 +82,8 @@ public class SelectSectionRV extends Activity {
 
         @Override
         public void onClick(View view) {
-            pos = recyclerView.getChildPosition(view);
-            sec= subjects.get(pos);
+         int   pos = recyclerView.getChildPosition(view);
+         //   sec= subjects.get(pos);
 
         }
 

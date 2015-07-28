@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -31,18 +32,20 @@ import java.util.ArrayList;
 public class MarkAttendance extends Activity {
 
     String sec;
+    SecondPage2.MyAdapter myAdapter;
     ArrayList<String> names = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mark_attendance);
 
 
-        Intent in=getIntent();
+      /*  Intent in=getIntent();
         SecondPage2 secondPage2=new SecondPage2();
         sec = in.getStringExtra(secondPage2.section);
         Log.d("hardik",sec);
-        new mark_att().execute();
+        new mark_att().execute();*/
     }
 
     @Override
@@ -67,8 +70,11 @@ public class MarkAttendance extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+   /* public int getItemCount() {
+        return names.size();
+    }*/
 
-    class mark_att extends AsyncTask<Void, Void, Boolean> {
+    /*class mark_att extends AsyncTask<Void, Void, Boolean> {
         String url = "http://csemil.web44.net/mark_attendance.php", ID = "sec";
 
         @Override
@@ -103,6 +109,13 @@ public class MarkAttendance extends Activity {
             parseJson(response);
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            myAdapter.notifyDataSetChanged();
+        }
+
     }
     private void parseJson(String response) {
         try {
@@ -116,7 +129,5 @@ public class MarkAttendance extends Activity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
-
-

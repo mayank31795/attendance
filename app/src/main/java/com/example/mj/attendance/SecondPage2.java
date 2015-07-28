@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 /**
  * Created by AK PC on 22-07-2015.
@@ -57,12 +58,13 @@ public class SecondPage2 extends FragmentActivity {
             String title = new String();
             if (position == 0) {
                 title = "MARK ATTENDANCE";
-                Intent in = getIntent();
+                /*Intent in = getIntent();
                 sec = in.getStringExtra(SelectSectionRV.KEY);
+                Log.d("hardik",sec);
 
                 Intent intent = new Intent(getApplicationContext(), MarkAttendance.class);
                 intent.putExtra(section,sec);
-                startActivity(intent);
+                startActivity(intent);*/
             }
             if (position == 1) {
                 title = "OVERALL ATTENDANCE";
