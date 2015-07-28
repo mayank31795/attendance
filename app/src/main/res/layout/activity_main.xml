@@ -4,20 +4,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/gradient">
 
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:id="@+id/load"
-       android:visibility="invisible"
-       >
-       <ProgressBar
-           android:layout_width="80dp"
-           android:layout_height="80dp"
-           android:id="@+id/progress"
-           android:indeterminate="true"
-           android:background = "@xml/progress"
-           android:layout_centerInParent="true"/>
-       </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -80,5 +67,20 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/load"
+        android:visibility="invisible"
+        android:background="#ff5c33"
+        >
+        <ProgressBar
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/progress"
+            android:indeterminate="true"
+            android:background = "@xml/progress"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
 
 </RelativeLayout>

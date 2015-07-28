@@ -1,15 +1,19 @@
 package com.example.mj.attendance;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -52,9 +56,9 @@ public class SelectSectionRV extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        section = (RecyclerView) findViewById(R.id.section);
-
         super.onCreate(savedInstanceState);
+        section = (RecyclerView) findViewById(R.id.section);
+        Button button = (Button) findViewById(R.id.log_out);
         setContentView(R.layout.activity_select_section_rv);
         recyclerView = (RecyclerView) findViewById(R.id.drawerlist);
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -62,11 +66,26 @@ public class SelectSectionRV extends Activity {
         recyclerView.setLayoutManager(llm);
         myAdapter = new MyAdapter();
         recyclerView.setAdapter(myAdapter);
-//
         new sel_sec().execute();
         Intent in=getIntent();
         message = in.getStringExtra(MainActivity.KEY);
-//        key= Integer.parseInt(message);
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                clear();
+                Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent1);
+            }
+        });
+    }
+
+    public void clear()
+    {
+        SharedPreferences prefs=getSharedPreferences("data", Context.MODE_PRIVATE);; // here you get your prefrences by either of two methods
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.commit();
     }
 
     @Override
@@ -80,14 +99,14 @@ public class SelectSectionRV extends Activity {
         }
     }
 
+
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
-            int pos = recyclerView.getChildPosition(view);
-            Intent intent = new Intent(getApplicationContext(), SecondPage2.class);
-            startActivity(intent);
-
+            //int pos = recyclerView.getChildPosition(view);
+                Intent intent = new Intent(getApplicationContext(), SecondPage2.class);
+                startActivity(intent);
         }
 
         class MyHolder extends RecyclerView.ViewHolder {

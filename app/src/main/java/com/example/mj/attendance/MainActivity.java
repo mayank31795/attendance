@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +33,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener{
     EditText login;
     Button next;
     String login_id;
@@ -58,7 +56,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         SharedPreferences sp1=this.getSharedPreferences("data",0);
         if(sp1.getString("password",null)!=null) {
             login_id=sp1.getString("password",null);
-            Toast t = Toast.makeText(this, "Good", Toast.LENGTH_SHORT);
+            Toast t = Toast.makeText(this, "Welcome Back!!", Toast.LENGTH_SHORT);
             t.show();
             new login().execute();
         }
@@ -127,7 +125,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();            load.setVisibility(View.VISIBLE);
+            super.onPreExecute();
+            load.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -169,8 +168,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 SharedPreferences sharedPreferences= getSharedPreferences("data", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor=sharedPreferences.edit();
-                //editor.clear();
-                editor.putString("password", login.getText().toString());
+                editor.putString("password", login_id);
                 editor.commit();
                 Intent i = new Intent(getApplicationContext(), SelectSectionRV.class);
                 i.putExtra(KEY,login_id);
