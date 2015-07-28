@@ -126,8 +126,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
-            load.setVisibility(View.VISIBLE);
+            super.onPreExecute();            load.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -169,6 +168,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 SharedPreferences sharedPreferences= getSharedPreferences("data", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor=sharedPreferences.edit();
+                //editor.clear();
                 editor.putString("password", login.getText().toString());
                 editor.commit();
 

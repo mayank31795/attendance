@@ -26,34 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SecondPage"
-            android:label="@string/title_activity_second_page" >
-        </activity>
 
         <activity
             android:name=".SecondPage2"
             android:label="@string/title_activity_second_page" >
-        </activity>
-        <activity
-            android:name=".OverallAttendance"
-            android:label="@string/title_activity_overall_attendance" >
-        </activity>
-        <activity
-            android:name=".MarkAttendance"
-            android:label="@string/title_activity_mark_attendance" >
-        </activity>
-        <activity
-            android:name=".SelectDate"
-            android:label="@string/title_activity_select_date" >
-        </activity>
-        <activity
-            android:name=".SelectDateAttendance"
-            android:label="@string/title_activity_select_date_attendance" >
-        </activity>
-        <activity
-            android:name=".SelectSection"
-            android:label="@string/title_activity_select_section" >
         </activity>
         <activity
             android:name=".SelectSectionRV"
