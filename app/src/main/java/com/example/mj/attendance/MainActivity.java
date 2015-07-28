@@ -44,7 +44,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private boolean backPressedToExitOnce = false;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -102,10 +101,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-
+          // v=view;
         if (v.getId() == R.id.button) {
             login_id = login.getText().toString();
             new login().execute();
+            next.setEnabled(false);
+
         }
 
         if (v.getId() == R.id.dsi) {
@@ -171,12 +172,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 //editor.clear();
                 editor.putString("password", login.getText().toString());
                 editor.commit();
-
                 Intent i = new Intent(getApplicationContext(), SelectSectionRV.class);
                 i.putExtra(KEY,login_id);
                 startActivity(i);
                 finish();
             } else {
+                next.setEnabled(true);
                 Toast.makeText(getApplicationContext(), "Enter a valid id", Toast.LENGTH_SHORT).show();
             }
         }
