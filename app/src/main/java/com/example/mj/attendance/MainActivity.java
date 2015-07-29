@@ -1,7 +1,9 @@
 package com.example.mj.attendance;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,12 +33,14 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener{
     EditText login;
     Button next;
     String login_id;
     RelativeLayout load;
+    static String KEY;
     private boolean backPressedToExitOnce = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         next = (Button) findViewById(R.id.button);
         next.setOnClickListener(this);
         load= (RelativeLayout) findViewById(R.id.load);
+
+
+        SharedPreferences sp1=this.getSharedPreferences("data",0);
+        if(sp1.getString("password",null)!=null) {
+            login_id=sp1.getString("password",null);
+            Toast t = Toast.makeText(this, "Welcome Back!!", Toast.LENGTH_SHORT);
+            t.show();
+            new login().execute();
+        }
 
     }
     @Override
@@ -86,10 +99,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-
+          // v=view;
         if (v.getId() == R.id.button) {
             login_id = login.getText().toString();
             new login().execute();
+            next.setEnabled(false);
+
         }
 
         if (v.getId() == R.id.dsi) {
@@ -142,6 +157,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 e.printStackTrace();
             }
             return null;
+
         }
 
         @Override
@@ -149,11 +165,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
             super.onPostExecute(aBoolean);
             load.setVisibility(View.INVISIBLE);
             if (aBoolean) {
+
+                SharedPreferences sharedPreferences= getSharedPreferences("data", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("password", login_id);
+                editor.commit();
                 Intent i = new Intent(getApplicationContext(), SelectSectionRV.class);
+                i.putExtra(KEY,login_id);
                 startActivity(i);
                 finish();
-               // button.setClickable(false);
             } else {
+                next.setEnabled(true);
                 Toast.makeText(getApplicationContext(), "Enter a valid id", Toast.LENGTH_SHORT).show();
             }
         }
