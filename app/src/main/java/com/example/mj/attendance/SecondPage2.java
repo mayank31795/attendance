@@ -1,10 +1,14 @@
 package com.example.mj.attendance;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.widget.ImageView;
+
+import java.security.Key;
 
 /**
  * Created by AK PC on 22-07-2015.
@@ -12,6 +16,7 @@ import android.support.v4.view.ViewPager;
 public class SecondPage2 extends FragmentActivity {
 
     ViewPager viewPager=null;
+    String message;
 
   @Override
   protected void onCreate(Bundle saveInstanceState){
@@ -20,7 +25,18 @@ public class SecondPage2 extends FragmentActivity {
       viewPager = (ViewPager) findViewById(R.id.pager);
       FragmentManager fragmentManager = getSupportFragmentManager();
       viewPager.setAdapter(new MyAdapter(fragmentManager));
+      Intent in=getIntent();
+      message = in.getStringExtra(MainActivity.KEY);
   }
+
+
+    /*
+    @Override
+    public void onBackPressed() {
+        Intent i= new Intent(this, SelectSectionRV.class);
+        startActivity(i);
+        finish();
+    } */
 }
 
 class MyAdapter extends FragmentStatePagerAdapter {

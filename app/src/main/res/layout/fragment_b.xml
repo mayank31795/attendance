@@ -1,16 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="0dp"
+    tools:context="com.example.mj.attendance.FragmentB"
     android:background="#ff5c33">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/container"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/drawerlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff5c33"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        ></android.support.v7.widget.RecyclerView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@drawable/shadow"
+        android:gravity="top"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:background="@drawable/upper"
+        android:gravity="top"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:textSize="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"/>
+        android:layout_marginLeft="48dp"
+        android:text="USN"
+        android:textColor="#1E669B"
+        android:layout_marginTop="5dp"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DAYS PRESENT"
+        android:textColor="#1E669B"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="5dp"
+        android:textSize="10dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="262dp"
+        android:text="PERCENTAGE"
+        android:textColor="#1E669B"
+        android:layout_marginTop="5dp"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        />
 
 
 </RelativeLayout>
+

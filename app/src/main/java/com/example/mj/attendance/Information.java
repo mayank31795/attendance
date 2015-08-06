@@ -8,5 +8,28 @@ import android.widget.CheckBox;
 public class Information {
     //int iconId;
    // CheckBox icon;
-    String title;
+    public boolean isSelected;
+    public String title;
+
+    public Information(String name) {
+        this.title = name;
+    }
+
+    public Information(String name, boolean isSelected) {
+        this.title = name;
+        this.isSelected = isSelected;
+    }
+    public  Information(boolean isSelected)
+    {
+        this.isSelected=isSelected;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean isSelected) {
+        this.isSelected = isSelected;
+    }
+
 }

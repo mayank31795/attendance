@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#ff5c33">
 
 
     <DatePicker
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
         android:id="@+id/datepicker"
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:paddingStart="20dp"
         android:paddingEnd="10dp"
         ></DatePicker>
 
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom">
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="NEXT"
-        android:layout_below="@+id/datepicker"
-        android:layout_margin="20dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/button_color"
+        android:layout_margin="50dp"
         android:gravity="center"
         />
-
+</RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@drawable/shadow"
+        android:gravity="top" />
 </RelativeLayout>

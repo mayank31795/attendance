@@ -1,15 +1,16 @@
 package com.example.mj.attendance;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,7 +41,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
     RelativeLayout load;
     static String KEY;
     private boolean backPressedToExitOnce = false;
-
+    Integer x=0;
+    String name;
+    Button dsi;
+  //  private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,19 +53,30 @@ public class MainActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         login = (EditText) findViewById(R.id.et);
         next = (Button) findViewById(R.id.button);
+        dsi= (Button) findViewById(R.id.dsi);
         next.setOnClickListener(this);
         load= (RelativeLayout) findViewById(R.id.load);
 
 
         SharedPreferences sp1=this.getSharedPreferences("data",0);
         if(sp1.getString("password",null)!=null) {
+            x=1;
             login_id=sp1.getString("password",null);
             Toast t = Toast.makeText(this, "Welcome Back!!", Toast.LENGTH_SHORT);
             t.show();
+            next.setEnabled(false);
+            dsi.setEnabled(false);
             new login().execute();
         }
 
     }
+
+    public boolean isNetworkAvailable() {
+        final ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
+        return (activeNetwork != null) && (activeNetwork.getState() == NetworkInfo.State.CONNECTED);
+    }
+
     @Override
     public void onBackPressed() {
         if (backPressedToExitOnce) {
@@ -73,38 +88,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public void onClick(View v) {
 
-          // v=view;
         if (v.getId() == R.id.button) {
+            if(isNetworkAvailable()){
             login_id = login.getText().toString();
             new login().execute();
             next.setEnabled(false);
-
+            }
+            else
+                Toast.makeText(getApplicationContext(), "Oops..Seems like you are not connected to \n    internet.Please connect and try again.", Toast.LENGTH_SHORT).show();
         }
 
         if (v.getId() == R.id.dsi) {
@@ -126,6 +120,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+          //  ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "Loading", "Please wait...", true);
             load.setVisibility(View.VISIBLE);
         }
 
@@ -144,8 +139,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 HttpResponse httpResponse = httpClient.execute(httpPost, httpContext);
                 HttpEntity httpEntity = httpResponse.getEntity();
                 String response = EntityUtils.toString(httpEntity);
+                Log.d("Hardik", response);
+                name=response.substring(1,response.indexOf('$'));
                 response = response.substring(0,1);
-                Log.d("DARSHAN", response);
+
                 if (response.equals("1")) {
                     return true;
                 } else return false;
@@ -163,18 +160,25 @@ public class MainActivity extends Activity implements View.OnClickListener{
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
+
+
             load.setVisibility(View.INVISIBLE);
             if (aBoolean) {
-
+                if(x==0)
+                {
+                   // dialog.dismiss();
+                   Toast.makeText(getApplicationContext(), "You have successfully Logged In!!", Toast.LENGTH_SHORT).show();}
                 SharedPreferences sharedPreferences= getSharedPreferences("data", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor=sharedPreferences.edit();
                 editor.putString("password", login_id);
+                editor.putString("name", name);
                 editor.commit();
                 Intent i = new Intent(getApplicationContext(), SelectSectionRV.class);
                 i.putExtra(KEY,login_id);
                 startActivity(i);
                 finish();
-            } else {
+            }
+            else {
                 next.setEnabled(true);
                 Toast.makeText(getApplicationContext(), "Enter a valid id", Toast.LENGTH_SHORT).show();
             }

@@ -66,7 +66,7 @@ public class Splash extends Activity {
     protected void onStop() {
         super.onStop();
         if(!isNetworkAvailable()){
-            Toast t = Toast.makeText(this, "Internet Connection Not Available", Toast.LENGTH_LONG);
+            Toast t = Toast.makeText(this, "Internet Connection Not Available", Toast.LENGTH_SHORT);
             t.show();
             finish();
     }

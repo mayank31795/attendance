@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,15 +38,14 @@ import java.util.ArrayList;
 
 public class SelectSectionRV extends Activity {
     RecyclerView section;
-    Integer key;
-    Integer n=0;
-    Integer icons[];
-    String titles[];
-    String number;
+    TextView text;
+    static  String Key;
     private boolean backPressedToExitOnce = false;
     String message;
-    ArrayList<String> subjects = new ArrayList<>();
-
+    String name;
+    String sec;
+    ArrayList<String> subjects = new ArrayList<>(),sections = new ArrayList<>();
+    int pos;
 
 
     RecyclerView recyclerView;
@@ -58,36 +55,51 @@ public class SelectSectionRV extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         section = (RecyclerView) findViewById(R.id.section);
-        Button button = (Button) findViewById(R.id.log_out);
         setContentView(R.layout.activity_select_section_rv);
         recyclerView = (RecyclerView) findViewById(R.id.drawerlist);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
         myAdapter = new MyAdapter();
+
         recyclerView.setAdapter(myAdapter);
         new sel_sec().execute();
         Intent in=getIntent();
         message = in.getStringExtra(MainActivity.KEY);
+        Log.d("Hardik", "" + message);
+        set_text();
 
-
+        final Button button = (Button) findViewById(R.id.log_out);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 clear();
+                Toast.makeText(getApplicationContext(), "You have Logged Out!!", Toast.LENGTH_LONG).show();
                 Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent1);
             }
         });
+
     }
+
+
 
     public void clear()
     {
-        SharedPreferences prefs=getSharedPreferences("data", Context.MODE_PRIVATE);; // here you get your prefrences by either of two methods
+        SharedPreferences prefs=getSharedPreferences("data", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.clear();
         editor.commit();
     }
 
+    public void set_text(){
+        SharedPreferences prefs=getSharedPreferences("data", Context.MODE_PRIVATE);
+        //SharedPreferences.Editor editor = prefs.edit();
+        name=prefs.getString("name",null);
+        text= (TextView) findViewById(R.id.name);
+        text.setText(""+name);
+
+
+    }
     @Override
     public void onBackPressed() {
         if (backPressedToExitOnce) {
@@ -104,9 +116,11 @@ public class SelectSectionRV extends Activity {
 
         @Override
         public void onClick(View view) {
-            //int pos = recyclerView.getChildPosition(view);
-                Intent intent = new Intent(getApplicationContext(), SecondPage2.class);
-                startActivity(intent);
+            pos = recyclerView.getChildPosition(view);
+            Intent i = new Intent(getApplicationContext(), SecondPage2.class);
+            i.putExtra(Key,sections.get(pos));
+            startActivity(i);
+            finish();
         }
 
         class MyHolder extends RecyclerView.ViewHolder {
@@ -131,15 +145,11 @@ public class SelectSectionRV extends Activity {
 
         @Override
         public void onBindViewHolder(MyAdapter.MyHolder holder, int position) {
-
-//            holder.imageView.setImageResource(Integer.parseInt(subjects.get(position)));
             holder.textView.setText(subjects.get(position));
         }
 
         @Override
-        public int getItemCount() {
-            return subjects.size();
-        }
+        public int getItemCount() { return subjects.size();}
     }
 
 
@@ -149,7 +159,6 @@ public class SelectSectionRV extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-//            section.setVisibility(View.INVISIBLE);
 
         }
         
@@ -179,16 +188,20 @@ public class SelectSectionRV extends Activity {
             String response = null;
             try {
                 response = EntityUtils.toString(httpEntity);
+                Log.d("Hardik",response);
+                JSONArray array = new JSONArray(response);
+                for(int i=0 ;i <array.length();i++){
+                    sections.add(array.getString(i));
+
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-           /* String response1 = response.substring(0,1);
-            number = response1;
-            String response2 = response.substring(3,4);
-            if(number.equals("2")) {
-                String response3 = response.substring(6, 7);
-            }*/
-            Log.d("Hardik",response);
+
+//            Log.d("Hardik",sec);
             parseJson(response);
 
             return null;
@@ -198,13 +211,7 @@ public class SelectSectionRV extends Activity {
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
             myAdapter.notifyDataSetChanged();
-            /*n=Integer.parseInt(number);
-            Integer i;
-            for(i=1;i<=n;i++)
-            {
-                icons[i] = R.drawable.circ;
-                titles[i]=;
-            }*/
+
         }
     }
 

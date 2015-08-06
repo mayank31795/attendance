@@ -11,24 +11,25 @@
         card_view:cardCornerRadius="8dp"
         card_view:cardElevation="2dp"
         >
-        <!--  android:button="@drawable/check"  -->
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listIcon"
 
-        android:layout_marginRight="5dp"
-        android:layout_gravity="end|center"
-        />
     <TextView
         android:id="@+id/listText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
-        android:textSize="15dp"
+        android:textSize="16dp"
         android:gravity="center|start"
         android:textStyle="italic"
         />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listIcon"
+            android:button="@drawable/check"
+            android:layout_marginRight="2dp"
+            android:gravity="center"
+            android:layout_gravity="right"
+            />
     </android.support.v7.widget.CardView>
 
 </LinearLayout>
